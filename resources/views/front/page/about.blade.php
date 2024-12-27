@@ -28,6 +28,10 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi
                         aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste
                         neque sit tempora!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi
+                        aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste
+                        neque sit tempora!</p>
+                    <p>Ini halaman About</p>
                 </div>
             </div>
         </div>
