@@ -9,7 +9,7 @@
     <title>{{ getenv('APP_NAME') }} | @yield('title')</title>
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="{{ url('/img/icon1.png') }}" />
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"
         type="text/css" />
@@ -19,14 +19,17 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link href="/front/css/styles.css" rel="stylesheet" />
+    <link href="{{ url('/front/css/styles.css') }}" rel="stylesheet" />
 </head>
 
 <body>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="/">{{ getenv('APP_NAME') }}</a>
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <img src="{{ url('/img/icon1.png') }}" alt="Logo" width="20%">
+                {{ getenv('APP_NAME') }}
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -108,7 +111,7 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="/front/js/scripts.js"></script>
+    <script src="{{ url('/front/js/scripts.js') }}"></script>
 </body>
 
 </html>
