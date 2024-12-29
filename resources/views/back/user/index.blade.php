@@ -16,18 +16,24 @@
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>No</th>
+                            @can('admin-users')
+                                <th>No</th>
+                            @endcan
                             <th>Nama</th>
                             <th>Waktu Daftar</th>
                             <th>Verifikasi Email</th>
-                            <th>Block</th>
+                            @can('admin-users')
+                                <th>Block</th>
+                            @endcan
                             <th>Pengaturan</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $key => $value)
                             <tr>
-                                <td>{{ $data->firstItem() + $key }}</td>
+                                @can('admin-users')
+                                    <td>{{ $data->firstItem() + $key }}</td>
+                                @endcan
                                 <td>
                                     {{ $value->name }}
                                     <div class="small">
@@ -46,19 +52,21 @@
                                         </h4>
                                     @endif
                                 </td>
-                                <td>
-                                    <a href="{{ route('users.toggle-block', ['user' => $value->id]) }}">
-                                        @if ($value->blocked_at != null)
-                                            <h4>
-                                                <span class="badge bg-danger">IYA</span>
-                                            </h4>
-                                        @else
-                                            <h4>
-                                                <span class="badge bg-success">TIDAK</span>
-                                            </h4>
-                                        @endif
-                                    </a>
-                                </td>
+                                @can('admin-users')
+                                    <td>
+                                        <a href="{{ route('users.toggle-block', ['user' => $value->id]) }}">
+                                            @if ($value->blocked_at != null)
+                                                <h4>
+                                                    <span class="badge bg-danger">IYA</span>
+                                                </h4>
+                                            @else
+                                                <h4>
+                                                    <span class="badge bg-success">TIDAK</span>
+                                                </h4>
+                                            @endif
+                                        </a>
+                                    </td>
+                                @endcan
                                 <td>
                                     <a href="{{ route('users.edit', ['user' => $value->id]) }}"
                                         class="btn btn-warning">Edit</a>

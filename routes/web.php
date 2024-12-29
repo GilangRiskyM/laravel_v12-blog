@@ -17,7 +17,8 @@ Route::get('/berita', [BlogController::class, 'index']);
 Route::get('/berita/{slug}', [BlogController::class, 'show']);
 Route::get('/daftar_peserta_didik_baru', [PendaftaranController::class, 'create']);
 
-Route::middleware(['auth', 'verified'])->group(function () {
+// Back
+Route::middleware(['auth', 'verified', 'blocked'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -50,7 +51,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/users/{user}/delete', [UserController::class, 'delete'])->name('users.delete');
 
     //Blokir user
-    Route::get('/users/{user}/toggle-block', [UserController::class, 'toggleBlock'])->name('users.toggle-block');
+    Route::get('/users/{user}/toggle-block', [UserController::class, 'toggleBlock'])->name('users.toggle-block')->middleware('role_or_permission:admin-users');
 });
 
 require __DIR__ . '/auth.php';
