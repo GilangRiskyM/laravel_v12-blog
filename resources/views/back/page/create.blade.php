@@ -1,9 +1,9 @@
 @extends('back.layout')
-@section('title', 'Edit Berita')
+@section('title', 'Tambah Page')
 @section('content')
     <div class="row g-0">
         <div class="col-md-12 mb-3">
-            <h1 class="text-center">Edit Berita</h1>
+            <h1 class="text-center">Tambah Page</h1>
         </div>
         @if ($errors->any())
             <div class="alert alert-danger mx-2">
@@ -15,23 +15,17 @@
             </div>
         @endif
         <div class="col-md-12 mb-3">
-            <form action="{{ route('blogs.update', ['blog' => $data->id]) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
-                @method('put')
                 <div class="mb-3">
                     <label for="title" class="form-label">Judul</label>
-                    <input type="text" class="form-control" id="title" name="title"
-                        value="{{ old('title', $data->title) }}">
+                    <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}">
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Deskripsi</label>
                     <input type="text" class="form-control" id="description" name="description"
-                        value="{{ old('description', $data->description) }}">
+                        value="{{ old('description') }}">
                 </div>
-                @isset($data->thumbnail)
-                    <img src="{{ asset('thumbnails' . '/' . $data->thumbnail) }}" alt="thumbnail" class="img-thumbnail"
-                        width="20%">
-                @endisset
                 <div class="mb-3">
                     <label for="thumbnail" class="form-label">Thumbnail</label>
                     <input type="file" class="form-control" id="thumbnail" name="thumbnail"
@@ -39,20 +33,16 @@
                 </div>
                 <div class="mb-3">
                     <label for="content" class="form-label">Konten</label>
-                    <textarea class="form-control" id="content" name="content">{{ old('content', $data->content) }}</textarea>
+                    <textarea class="form-control" id="content" name="content">{{ old('content') }}</textarea>
                 </div>
                 <div class="mb-3">
                     <select class="form-select" id="status" name="status">
-                        <option value="publish" {{ old('status', $data->status) == 'publish' ? 'selected' : '' }}>
-                            Publish
-                        </option>
-                        <option value="draft" {{ old('status', $data->status) == 'draft' ? 'selected' : '' }}>
-                            Draft
-                        </option>
+                        <option value="publish" {{ old('status') == 'publish' ? 'selected' : '' }}>Publish</option>
+                        <option value="draft" {{ old('status') == 'draft' ? 'selected' : '' }}>Draft</option>
                     </select>
                 </div>
                 <center>
-                    <a href="{{ route('blogs.index') }}" class="btn btn-secondary">Kembali</a>
+                    <a href="{{ route('posts.index') }}" class="btn btn-secondary">Kembali</a>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </center>
             </form>

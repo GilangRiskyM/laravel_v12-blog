@@ -57,6 +57,12 @@
                             <div class="sb-nav-link-icon"><i class='bx bxs-folder'></i></div>
                             Berita
                         </a>
+                        @can('admin-posts')
+                            <a href="{{ route('posts.index') }}" class="nav-link">
+                                <div class="sb-nav-link-icon"><i class='bx bxs-folder'></i></div>
+                                Page
+                            </a>
+                        @endcan
                         <a href="/daftar_peserta_didik_baru" class="nav-link">
                             <div class="sb-nav-link-icon"><i class='bx bxs-folder'></i></div>
                             Data Peserta Didik Baru

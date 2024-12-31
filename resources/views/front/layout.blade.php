@@ -27,7 +27,7 @@
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
         <div class="container px-4 px-lg-5">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{ url('/img/icon1.png') }}" alt="Logo" width="20%">
+                <img src="{{ url('/img/icon1.png') }}" alt="Logo" width="15%">
                 {{ getenv('APP_NAME') }}
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
@@ -37,17 +37,45 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ url('/') }}">Halaman
-                            Awal</a></li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-                            href="{{ url('/tentang_kami') }}">Tentang Kami</a>
+                    <li class="nav-item">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ url('/') }}">
+                            Halaman Awal
+                        </a>
                     </li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ url('/berita') }}">Berita</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Tentang Kami
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="{{ route('page.detail', ['slug' => 'visi-dan-misi']) }}">
+                                    Visi dan Misi
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item"
+                                    href="{{ route('page.detail', ['slug' => 'prestasi-dan-penghargaan']) }}">
+                                    Prestasi dan Penghargaan
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    Something else here
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ url('/kontak') }}">Kontak</a>
+                    <li class="nav-item">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ url('/berita') }}">
+                            Berita
+                        </a>
                     </li>
-                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
-                            href="{{ url('https://pendaftaran-elmuna.vercel.app/') }}">Pendaftaran</a>
+                    <li class="nav-item">
+                        <a class="nav-link px-lg-3 py-3 py-lg-4"
+                            href="{{ url('https://pendaftaran-elmuna.vercel.app/') }}">
+                            Pendaftaran
+                        </a>
                     </li>
                     @if (isset(Auth::user()->id))
                         <li class="nav-item">

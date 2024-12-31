@@ -9,16 +9,6 @@ class HomepagesController extends Controller
 {
     function index()
     {
-        return view('front.page.homepage');
-    }
-
-    function about()
-    {
-        return view('front.page.about');
-    }
-
-    function contact()
-    {
-        return view('front.page.contact');
+        return redirect('/hal/selamat-datang');
     }
 }

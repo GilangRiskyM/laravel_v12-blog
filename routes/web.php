@@ -2,19 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Back\PostController;
 use App\Http\Controllers\Back\UserController;
 use App\Http\Controllers\Front\BlogController;
 use App\Http\Controllers\Back\DashboardController;
 use App\Http\Controllers\Front\HomepagesController;
 use App\Http\Controllers\front\PendaftaranController;
 use App\Http\Controllers\Back\BlogController as BackBlogController;
+use App\Http\Controllers\Front\PageController;
 
 // Front
 Route::get('/', [HomepagesController::class, 'index']);
-Route::get('/tentang_kami', [HomepagesController::class, 'about']);
-Route::get('/kontak', [HomepagesController::class, 'contact']);
 Route::get('/berita', [BlogController::class, 'index']);
 Route::get('/berita/{slug}', [BlogController::class, 'show']);
+Route::get('/hal/{slug}', [PageController::class, 'detail'])->name('page.detail');
 Route::get('/daftar_peserta_didik_baru', [PendaftaranController::class, 'create']);
 
 // Back
@@ -35,6 +36,17 @@ Route::middleware(['auth', 'verified', 'blocked'])->group(function () {
         'destroy' => 'blogs.destroy',
     ]);
     Route::get('/blogs/{blog}/delete', [BackBlogController::class, 'delete'])->name('blogs.delete');
+
+    //Post Route
+    Route::resource('posts', PostController::class)->names([
+        'index' => 'posts.index',
+        'create' => 'posts.create',
+        'store' => 'posts.store',
+        'edit' => 'posts.edit',
+        'update' => 'posts.update',
+        'destroy' => 'posts.destroy',
+    ])->middleware('role_or_permission:admin-posts');
+    Route::get('/posts/{post}/delete', [PostController::class, 'delete'])->name('posts.delete')->middleware('role_or_permission:admin-posts');
 
     //Pendaftaran Route
 

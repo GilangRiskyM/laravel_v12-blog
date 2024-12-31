@@ -27,7 +27,7 @@ class UserController extends Controller
         if ($user->can('admin-users')) {
             $data = User::orderBy('id', 'desc')->paginate(10);
         } else {
-            $data = User::where('id', $user->id)->orderBy('id', 'desc')->paginate(10);
+            $data = User::where('id', $user->id)->orderBy('id', 'desc')->paginate(1);
         }
 
         return view('back.user.index', [
