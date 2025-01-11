@@ -63,10 +63,6 @@
                                 Page
                             </a>
                         @endcan
-                        <a href="/daftar_peserta_didik_baru" class="nav-link">
-                            <div class="sb-nav-link-icon"><i class='bx bxs-folder'></i></div>
-                            Data Peserta Didik Baru
-                        </a>
                         <a href="{{ route('users.index') }}" class="nav-link">
                             <div class="sb-nav-link-icon"><i class='bx bxs-user'></i></div>
                             Akun User
