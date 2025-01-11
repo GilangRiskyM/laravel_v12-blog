@@ -7,8 +7,8 @@ use App\Http\Controllers\Back\UserController;
 use App\Http\Controllers\Front\BlogController;
 use App\Http\Controllers\Back\DashboardController;
 use App\Http\Controllers\Front\HomepagesController;
-use App\Http\Controllers\front\PendaftaranController;
 use App\Http\Controllers\Back\BlogController as BackBlogController;
+use App\Http\Controllers\Front\LandingPendaftaranController;
 use App\Http\Controllers\Front\PageController;
 
 // Front
@@ -16,7 +16,7 @@ Route::get('/', [HomepagesController::class, 'index']);
 Route::get('/berita', [BlogController::class, 'index']);
 Route::get('/berita/{slug}', [BlogController::class, 'show']);
 Route::get('/hal/{slug}', [PageController::class, 'detail'])->name('page.detail');
-Route::get('/daftar_peserta_didik_baru', [PendaftaranController::class, 'create']);
+Route::get('/pendaftaran', [LandingPendaftaranController::class, 'index']);
 
 // Back
 Route::middleware(['auth', 'verified', 'blocked'])->group(function () {
