@@ -267,7 +267,7 @@
 
         <div class="container shadow rounded soft-blue p-3 mb-3">
             <div class="col align-items-center justify-content-center p-md-5 p-sm-1 m-3 text-center">
-                <h2>Kursus? Di Elumana aja</h2>
+                <h2>Kursus? Di Elmuna aja</h2>
             </div>
         </div>
 
