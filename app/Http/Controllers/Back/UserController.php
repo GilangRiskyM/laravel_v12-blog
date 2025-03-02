@@ -6,13 +6,11 @@ use DOMDocument;
 use Carbon\Carbon;
 use App\Models\Blog;
 use App\Models\User;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
-use App\Http\Requests\UserEditRequest;
 use App\Http\Requests\UserStoreRequest;
 use Spatie\Permission\Models\Permission;
 

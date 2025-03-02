@@ -18,14 +18,12 @@ class RolePermissionSeeder extends Seeder
 
         Permission::create(['name' => 'admin-blogs']);
         Permission::create(['name' => 'admin-posts']);
-        Permission::create(['name' => 'admin-registrations']);
         Permission::create(['name' => 'admin-users']);
 
         $roleAdmin = Role::findByName('admin');
 
         $roleAdmin->givePermissionTo('admin-blogs');
         $roleAdmin->givePermissionTo('admin-posts');
-        $roleAdmin->givePermissionTo('admin-registrations');
         $roleAdmin->givePermissionTo('admin-users');
     }
 }
